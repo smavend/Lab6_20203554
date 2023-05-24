@@ -9,7 +9,7 @@
 <div class="container">
     <div th:insert="~{fragments/general.html :: header}"></div>
     <h1>Lista de estudiantes</h1>
-    <a href="#">Nuevo Estudiante</a>
+    <a th:href="@{/estudiante/nuevo}">Nuevo Estudiante</a>
     <table class="table">
         <thead>
         <tr>

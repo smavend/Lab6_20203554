@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Lista de hospitales</title>
+    <div th:insert="~{fragments/general.html :: estilo}"></div>
+  </head>
+  <body>
+    <div class="container">
+      <div th:insert="~{fragments/general.html :: header}"></div>
+      <h1>Crear nuevo estudiante</h1>
+      <form method="post" th:action="@{'/estudiante/guardar'}" th:object="${estudiante}">
+        <input th:field="*{id}" type="hidden"/>
+
+        <div class="mb-3">
+          <label class="form-label">Nombres</label>
+          <input th:field="*{nombres}" type="text" class="form-control"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('nombres')}"
+               th:errors="*{nombres}"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Apellidos</label>
+          <input th:field="*{apellidos}" type="text" class="form-control"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('apellidos')}"
+               th:errors="*{apellidos}"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">DNI</label>
+          <input th:field="*{dni}" type="number" maxlength="8" class="form-control"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('dni')}"
+               th:errors="*{dni}"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Edad</label>
+          <input th:field="*{edad}" type="number" min="0" class="form-control"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('edad')}"
+               th:errors="*{edad}"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Correo</label>
+          <input th:field="*{correo}" type="email" class="form-control"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('correo')}"
+               th:errors="*{correo}"></div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input th:field="*{password}" type="password" class="form-control"/>
+          <div class="text-danger" th:if="${#fields.hasErrors('password')}"
+               th:errors="*{password}"></div>
+        </div>
+        <a th:href="@{'/estudiante/lista'}" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary" th:text="${estudiante.id == 0? 'Registrar' : 'Actualizar'}">Reg/act</button>
+      </form>
+    </div>
+  </body>
+</html>

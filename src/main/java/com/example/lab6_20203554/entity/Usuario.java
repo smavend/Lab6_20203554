@@ -1,6 +1,7 @@
 package com.example.lab6_20203554.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "usuario")
@@ -12,6 +13,7 @@ public class Usuario {
     private int id;
 
     @Column(nullable = false)
+    @Size(min = 3, max = 100, message = "Debe ingresar un nombre entre 3 y 100 caracteres")
     private String nombres;
 
     @Column(nullable = false)
