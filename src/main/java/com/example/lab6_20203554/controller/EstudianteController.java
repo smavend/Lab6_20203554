@@ -23,11 +23,7 @@ public class EstudianteController {
 
     @Autowired
     UsuarioRepository usuarioRepository;
-    final SecurityConfig securityConfig;
 
-    public EstudianteController(SecurityConfig securityConfig) {
-        this.securityConfig = securityConfig;
-    }
 
     @GetMapping("/lista")
     public String listaUsuarios(Model model){
