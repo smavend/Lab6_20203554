@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de hospitales</title>
+    <div th:insert="~{fragments/general.html :: estilo}"></div>
+</head>
+<body>
+<div class="container">
+    <div th:insert="~{fragments/general.html :: header}"></div>
+    <h1>Lista de cursos</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Profesor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="curso, a : ${cursos}">
+            <th scope="row" th:text="${a.index+1}">1</th>
+            <td th:text="${curso.nombre}">Mark</td>
+            <td th:text="${curso.profesor.nombres+' '+ curso.profesor.apellidos}">Mark</td>
+            <td><a href="#">Registrarme</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
